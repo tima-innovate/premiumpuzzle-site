@@ -1,0 +1,96 @@
+:root{
+  --bg:#0b1118;--surface:#121b25;--surface-2:#182432;--border:#243344;
+  --text:#eaf0f6;--muted:#93a4b6;--accent:#2fd3c0;--accent-2:#6c8cff;--gold:#f2b544;
+  --on-accent:#06201c;--shadow:0 10px 40px rgba(0,0,0,.35);--radius:18px;
+}
+@media (prefers-color-scheme:light){:root{
+  --bg:#f6f8fb;--surface:#fff;--surface-2:#eef2f7;--border:#dde4ec;
+  --text:#101b27;--muted:#58697a;--accent:#0c8f81;--accent-2:#3f5fe0;--gold:#a8650a;
+  --on-accent:#fff;--shadow:0 10px 30px rgba(20,40,70,.10);
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--border)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-weight:800;font-size:1.1rem;color:var(--text);letter-spacing:-.01em}
+.brand span{color:var(--accent)}
+.brand:hover{text-decoration:none}
+.topbar nav{display:flex;gap:4px}
+.topbar nav a{color:var(--muted);padding:8px 12px;border-radius:10px;font-size:.93rem;font-weight:500}
+.topbar nav a:hover{color:var(--text);background:var(--surface-2);text-decoration:none}
+
+/* hero */
+.hero{position:relative;overflow:hidden;text-align:center;padding:84px 0 64px}
+.hero::before{content:"";position:absolute;inset:-40% -10% auto -10%;height:120%;z-index:-1;
+  background:radial-gradient(600px 300px at 25% 30%,color-mix(in srgb,var(--accent) 28%,transparent),transparent 70%),
+             radial-gradient(600px 320px at 80% 20%,color-mix(in srgb,var(--accent-2) 26%,transparent),transparent 70%)}
+.eyebrow{display:inline-block;padding:6px 14px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--muted);font-size:.85rem;font-weight:600}
+.hero h1{font-size:clamp(2.3rem,6vw,4rem);line-height:1.1;letter-spacing:-.03em;margin:18px 0 16px;font-weight:800}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{max-width:620px;margin:0 auto 28px;color:var(--muted);font-size:1.15rem}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;font-weight:700;font-size:.97rem;border:1px solid var(--border);background:var(--surface);color:var(--text);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);text-decoration:none}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.stats{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:44px;color:var(--muted);font-size:.92rem}
+.stats b{display:block;font-size:1.7rem;color:var(--text);letter-spacing:-.02em}
+
+/* sections */
+section{padding:64px 0}
+.section-head{max-width:640px;margin-bottom:32px}
+.kicker{color:var(--gold);font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.09em}
+.section-head h2{font-size:clamp(1.8rem,4vw,2.4rem);line-height:1.2;letter-spacing:-.02em;margin:6px 0 10px}
+.section-head p{color:var(--muted);margin:0;font-size:1.05rem}
+
+/* feature cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.card .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;background:var(--surface-2);margin-bottom:12px}
+.card h3{margin:0 0 6px;font-size:1.08rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{padding:6px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:.88rem;color:var(--muted)}
+
+/* screenshot galleries */
+.shots{display:flex;gap:16px;overflow-x:auto;padding:28px 4px 12px;margin-top:8px;scrollbar-width:thin}
+.shots figure,.shots>img{flex:none}
+.shots figure{margin:0;text-align:center}
+.shots img{height:380px;width:auto;border-radius:22px;border:6px solid var(--surface-2);box-shadow:var(--shadow);background:var(--surface)}
+.shots figcaption{margin-top:10px;font-size:.85rem;color:var(--muted)}
+.badge{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:9px 18px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);font-size:.9rem;font-weight:600}
+.alt{background:linear-gradient(180deg,transparent,var(--surface) 12%,var(--surface) 88%,transparent)}
+
+/* contact */
+.contact{text-align:center}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:48px 24px;box-shadow:var(--shadow)}
+.contact-card h2{margin:0 0 8px;font-size:2rem;letter-spacing:-.02em}
+.contact-card p{color:var(--muted);margin:0 0 22px}
+
+footer{padding:32px 0 48px;text-align:center;color:var(--muted);font-size:.88rem;border-top:1px solid var(--border)}
+footer a{color:var(--muted);margin:0 8px}
+
+/* privacy / doc pages */
+.doc{max-width:760px;padding:40px 20px 24px}
+.doc h1{font-size:2.2rem;letter-spacing:-.02em;margin:12px 0 4px}
+.doc h2{margin-top:2.2rem;font-size:1.3rem}
+.doc p{color:var(--text)}
+.doc .updated{color:var(--muted);font-size:.9rem}
+.back{display:inline-block;margin-top:8px;font-weight:600}
+
+@media(max-width:640px){
+  .topbar nav a{padding:8px 8px;font-size:.85rem}
+  .brand{font-size:1rem}
+  .hero{padding:56px 0 40px}
+  section{padding:44px 0}
+  .shots img{height:300px}
+}
+@media(max-width:420px){.topbar nav a:nth-child(n+3){display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.card{transition:none}}
